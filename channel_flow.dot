@@ -1,0 +1,16 @@
+digraph ChannelFlow {
+  rankdir=LR;
+  node [shape=box, style=filled, fillcolor=lightblue];
+  edge [color=gray];
+
+  doneChan [label="doneChan\nchan bool\n.\examples\channels.go:11"];
+  numbersChan [label="numbersChan\nchan int\n.\examples\channels.go:12"];
+  messageChan [label="messageChan\nchan string\n.\examples\channels.go:10"];
+  main -> doneChan [label="send\n.\examples\channels.go:18"];
+  doneChan -> main [label="receive\n.\examples\channels.go:35"];
+  main -> numbersChan [label="send\n.\examples\channels.go:24"];
+  main -> messageChan [label="send\n.\examples\channels.go:16"];
+  main -> messageChan [label="send\n.\examples\channels.go:17"];
+  messageChan -> main [label="receive\n.\examples\channels.go:33 (select)"];
+  messageChan -> main [label="receive\n.\examples\channels.go:33"];
+}
